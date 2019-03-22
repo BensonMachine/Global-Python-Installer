@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import os
+
+fromscript = input("local script")
+globalnamee = input ("global call")
+
+os.system("sudo cp " + fromscript + " /usr/bin/" + globalnamee)
