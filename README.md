@@ -3,9 +3,9 @@ select script in the working directort and it will be installed in a way that yo
 
 
 # INSTRUCTION
-1- run ./installr
-2- type the local script name
-3- type the global name , this is the command you will type to run the script
+## 1- run ./installr
+## 2- type the local script name
+## 3- type the global name , this is the command you will type to run the script
 
 # whats up
-installr is open source very simple. it install the script/code in /usr/bin where it can be ran anywhere
+## installr is open source very simple. it install the script/code in /usr/bin where it can be ran anywhere
