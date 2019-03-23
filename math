@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+
+addition1 = input("\n first number \t: ")
+addition2 = input("\n second number \t: ")
+
+menue = input("\n 1-addition")
+
+if menue == 1:
+	total = (int(addition1) + int(addition2))
+	print("\n resultat \t: " + str(total))
