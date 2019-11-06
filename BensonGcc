@@ -3,6 +3,7 @@ import os
 import sys
 
 extrastuff = "";
+lncursese = "";
 word1 = sys.argv[1]
 
 fromscript = input("Extra Stuff ? ")
@@ -12,9 +13,7 @@ if fromscript == "y":
   lncursese = input("1 -lncurses")
   
 if lncursese == "1":
-  print("ok we add lncurses")
   extrastuff += " -lncurses"
-
   
 if extrastuff == "":
   os.system("gcc " + word1)
