@@ -1,9 +1,25 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os
 import sys
 
-os.system("ls")
-
+extrastuff = "";
 word1 = sys.argv[1]
 
-os.system("gcc " + word1)
+fromscript = input("Extra Stuff ? ")
+
+if fromscript == "y":
+  print("What are we adding ? ")
+  lncursese = input("1 -lncurses")
+  
+if lncursese == "1":
+  print("ok we add lncurses")
+  extrastuff += " -lncurses"
+
+  
+if extrastuff == "":
+  os.system("gcc " + word1)
+else:
+  print("Extra = " + extrastuff)
+  os.system("gcc " + word1 + extrastuff)
+
+  
