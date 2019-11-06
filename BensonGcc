@@ -1,24 +1,52 @@
 #!/usr/bin/python3
 import os
 import sys
-
+#VARS
 extrastuff = "";
 lncursese = "";
+
+selectname = "";
 word1 = sys.argv[1]
 
-fromscript = input("Extra Stuff ? ")
 
-if fromscript == "y":
+
+
+#new name
+uwant2name = input("Change the name")
+
+if uwant2name == "y":
+  selectname = input("Whats the name ?")
+  extrastuff += " -o " + selectname
+
+  
+  
+
+
+
+
+
+
+#EXTRA LIB
+uwantextra = input("Extra Stuff ? ")
+
+if uwantextra == "y":
   print("What are we adding ? ")
   lncursese = input("1 -lncurses")
   
 if lncursese == "1":
   extrastuff += " -lncurses"
   
+  
+  
+
+  
+  
+  
+  
+#GO
 if extrastuff == "":
   os.system("gcc " + word1)
 else:
-  print("Extra = " + extrastuff)
   os.system("gcc " + word1 + extrastuff)
 
   
