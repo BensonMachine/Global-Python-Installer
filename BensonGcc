@@ -7,43 +7,48 @@ extrastuff = "";
 extralib = "";
 selectname = "";
 moretoimport = 1;
-word1 = sys.argv[1]
+
+nbOfArgs = (sys.argv)
+
+if len(nbOfArgs) > 1:
+  word1 = sys.argv[1]
+else:
+  print("\nPlease enter at least 1 c program to compile\n")
+  sys.exit();
 
 
 os.system("clear")
+print("we will compile your source code called -->\t " + word1[:-2])
 
-
-print(word1)
-
-#new name
-uwant2name = input("Change the name : y/n ? \t\t ")
-
-if uwant2name == "y":
-  selectname = input("Type the new name : \t\t\t")
-  extrastuff += " -o " + selectname
-else:
-  extrastuff += " -o " + word1[:-2]
+ #   #new name
+ #   uwant2name = input("Name the program other than   " + word1[:-2] + " : y/n  ")
+ #
+ #   if uwant2name == "y":
+ #     selectname = input("Type the new name : \t\t\t")
+ #     extrastuff += " -o " + selectname
+ #   else:
+ #     extrastuff += " -o " + word1[:-2]
+  
+extrastuff += " -o " + word1[:-2]
 
 
 #EXTRA LIB
 uwantextra = input("Extra Stuff : y/n ? \t\t")
+if uwantextra == "y":
+  while moretoimport == 1:
+    if uwantextra == "y":
+      print("What are we adding ? \t\t ")
+      extralib = input("1 -lncurses \n2-lform \n \t :")
 
-while moretoimport == 1:
-  if uwantextra == "y":
-    print("What are we adding ? \t\t ")
-    extralib = input("1 -lncurses \n2-lform \n \t :")
+    if extralib == "1":
+      extrastuff += " -lncurses"
+    if extralib == "2":
+      extrastuff += " -lform"
 
-  if extralib == "1":
-    extrastuff += " -lncurses"
-  if extralib == "2":
-    extrastuff += " -lform"
-    
-  
-  more = input("put more stuff ? y/n")
-  if more == "n":
-    moretoimport = 0
-    
-  
+
+    more = input("put more stuff ? y/n")
+    if more == "n":
+      moretoimport = 0
 
 
   
