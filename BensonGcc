@@ -10,13 +10,12 @@ moretoimport = 1;
 
 nbOfArgs = (sys.argv)
 
-if len(nbOfArgs) > 1:
-  word1 = sys.argv[1]
-else:
+if len(nbOfArgs) <= 1:
   print("\nPlease enter at least 1 c program to compile\n")
   sys.exit();
 
 
+word1 = sys.argv[1]
 os.system("clear")
 print("we will compile your source code called -->\t " + word1[:-2])
 
@@ -33,12 +32,12 @@ extrastuff += " -o " + word1[:-2]
 
 
 #EXTRA LIB
-uwantextra = input("Extra Stuff : y/n ? \t\t")
+uwantextra = input("Extra Stuff : y/n [n]? \t\t")
 if uwantextra == "y":
   while moretoimport == 1:
-    if uwantextra == "y":
-      print("What are we adding ? \t\t ")
-      extralib = input("1 -lncurses \n2-lform \n \t :")
+    if uwantextra == "y" or uwantextra == "":
+      print("\nWhat are we adding ? \t\t ")
+      extralib = input(" 1 -lncurses \n 2 -lform \n:")
 
     if extralib == "1":
       extrastuff += " -lncurses"
@@ -46,15 +45,15 @@ if uwantextra == "y":
       extrastuff += " -lform"
 
 
-    more = input("put more stuff ? y/n")
-    if more == "n":
+    more = input("put more stuff ? y/n [n]")
+    if more == "n" or more == "":
       moretoimport = 0
 
-
+  ## collect2 ld 1 = no -lncurses
+  ##
   
-  
-  
-print("Final : " + "gcc " + word1 + extrastuff)
+print("\n\nIf you want to do the compiling by youself use this  : " + "\ngcc " + word1 + extrastuff)
+print("\n\n\n")
 #GO
 if extrastuff == "":
   os.system("gcc " + word1)
