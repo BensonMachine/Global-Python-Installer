@@ -41,7 +41,7 @@ if uwantextra == "y":
   while moretoimport == 1:
     if uwantextra == "y" or uwantextra == "":
       print("\nWhat are we adding ? \t\t ")
-      extralib = input(" 1 -lncurses \n 2 -lform \n 3 -lpanel      \n:")
+      extralib = input(" 1 -lncurses \n 2 -lform \n 3 -lpanel \n 4 -lmenu      \n:")
 
     if extralib == "1":
       extrastuff += " -lncurses"
@@ -49,6 +49,9 @@ if uwantextra == "y":
       extrastuff += " -lform"
     if extralib == "3":
       extrastuff += " -lpanel"
+    if extralib == "4":
+      extrastuff += " -lmenu"
+
 
     more = input("put more stuff ? y/n [n]")
     if more == "n" or more == "":
