@@ -8,14 +8,18 @@ extralib = "";
 selectname = "";
 moretoimport = 1;
 
+# catch the argument,if no argument if passed, there is nothing to compile
+# so it will exit
 nbOfArgs = (sys.argv)
 
+#exit if no argumnt is passed
 if len(nbOfArgs) <= 1:
   print("\nPlease enter at least 1 c program to compile\n")
   sys.exit();
 
-
+  
 word1 = sys.argv[1]
+
 os.system("clear")
 print("we will compile your source code called -->\t " + word1[:-2])
 
@@ -44,16 +48,13 @@ if uwantextra == "y":
     if extralib == "2":
       extrastuff += " -lform"
 
-
     more = input("put more stuff ? y/n [n]")
     if more == "n" or more == "":
       moretoimport = 0
 
-  ## collect2 ld 1 = no -lncurses
-  ##
-  
 print("\n\nIf you want to do the compiling by youself use this  : " + "\ngcc " + word1 + extrastuff)
 print("\n\n\n")
+
 #GO
 if extrastuff == "":
   os.system("gcc " + word1)
