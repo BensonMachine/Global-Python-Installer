@@ -1,52 +1,57 @@
 #!/usr/bin/python3
 import os
 import sys
+
 #VARS
 extrastuff = "";
-lncursese = "";
-
+extralib = "";
 selectname = "";
+moretoimport = 1;
 word1 = sys.argv[1]
 
 
+os.system("clear")
 
+
+print(word1)
 
 #new name
-uwant2name = input("Change the name")
+uwant2name = input("Change the name : y/n ? \t\t ")
 
 if uwant2name == "y":
-  selectname = input("Whats the name ?")
+  selectname = input("Type the new name : \t\t\t")
   extrastuff += " -o " + selectname
-
-  
-  
-
-
-
-
+else:
+  extrastuff += " -o " + word1[:-2]
 
 
 #EXTRA LIB
-uwantextra = input("Extra Stuff ? ")
+uwantextra = input("Extra Stuff : y/n ? \t\t")
 
-if uwantextra == "y":
-  print("What are we adding ? ")
-  lncursese = input("1 -lncurses")
+while moretoimport == 1:
+  if uwantextra == "y":
+    print("What are we adding ? \t\t ")
+    extralib = input("1 -lncurses \n2-lform \n \t :")
+
+  if extralib == "1":
+    extrastuff += " -lncurses"
+  if extralib == "2":
+    extrastuff += " -lform"
+    
   
-if lncursese == "1":
-  extrastuff += " -lncurses"
+  more = input("put more stuff ? y/n")
+  if more == "n":
+    moretoimport = 0
+    
   
-  
-  
+
 
   
   
   
-  
+print("Final : " + "gcc " + word1 + extrastuff)
 #GO
 if extrastuff == "":
   os.system("gcc " + word1)
 else:
   os.system("gcc " + word1 + extrastuff)
-
-  
